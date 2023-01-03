@@ -10,16 +10,15 @@
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
-  /* @license-end */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
 </script>
-<link rel="search" href="../../search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="dolibarr"/>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -50,17 +49,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search','.html'
       <li><a href="../../modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="../../annotated.html"><span>Classes</span></a></li>
       <li><a href="../../files.html"><span>Files</span></a></li>
-      <li><a href="../../examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="../../search.php" method="get">
-              <img id="MSearchSelect" src="../../search/mag.svg" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.svg" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -73,6 +75,20 @@ var searchBox = new SearchBox("searchBox", "../../search",false,'Search','.html'
       <li><a href="../../functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -644,7 +660,7 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00161">161</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00125">125</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -685,7 +701,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, 0=Nothing done, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00691">691</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00655">655</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09800">CommonObject\setStatusCommon()</a>.</p>
 
@@ -727,7 +743,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, Id of created object if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00202">202</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00166">166</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09145">CommonObject\createCommon()</a>.</p>
 
@@ -769,7 +785,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>mixed New object created, &lt;0 if KO </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00214">214</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00178">178</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -809,7 +825,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00413">413</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00377">377</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09522">CommonObject\deleteCommon()</a>.</p>
 
@@ -858,7 +874,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &gt;0 if OK, &lt;0 if KO </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00427">427</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00391">391</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -881,7 +897,7 @@ Additional Inherited Members</h2></td></tr>
 <p>In such a case, parameters come from the schedule job setup field 'Parameters' Use public function doScheduledJob($param1, $param2, ...) to get parameters</p>
 <dl class="section return"><dt>Returns</dt><dd>int 0 if OK, &lt;&gt;0 if KO (this function is used also by cron so only 0 is OK) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l01028">1028</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00992">992</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -935,7 +951,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int 1 if ok, &lt;= 0 if ko </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00446">446</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00410">410</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -975,7 +991,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, 0 if not found, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00298">298</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00262">262</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1045,7 +1061,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../dc/d3c/class_common_object_line.html#a237c1f0313204b65ba3beb7bc22a3ce0">CommonObjectLine</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00330">330</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00294">294</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1067,7 +1083,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Load object lines in memory from the database. </p>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, 0 if not found, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00310">310</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00274">274</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1135,7 +1151,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int 0 if KO, 1 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00993">993</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00957">957</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1164,7 +1180,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string Label of status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00830">830</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00794">794</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1186,7 +1202,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Create an array of lines. </p>
 <dl class="section return"><dt>Returns</dt><dd>array|int array of lines if OK, &lt;0 if KO </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00910">910</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00874">874</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../d3/d71/support_2inc_8php_source.html#l00041">db</a>.</p>
 
@@ -1210,7 +1226,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Returns the reference to the following non used object depending on the active numbering module. </p>
 <dl class="section return"><dt>Returns</dt><dd>string Object free reference </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00932">932</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00896">896</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1271,7 +1287,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string String with URL </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00742">742</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00706">706</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1300,7 +1316,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00870">870</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00834">834</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1322,7 +1338,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Initialise object with example values Id must be 0 if object instance is a specimen. </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00900">900</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00864">864</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1362,7 +1378,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>string Label of status </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00843">843</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00807">807</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1402,7 +1418,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, 0=Nothing done, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00715">715</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00679">679</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09800">CommonObject\setStatusCommon()</a>.</p>
 
@@ -1444,7 +1460,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00667">667</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00631">631</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09800">CommonObject\setStatusCommon()</a>.</p>
 
@@ -1486,7 +1502,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;0 if KO, &gt;0 if OK </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00401">401</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00365">365</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 <p class="reference">References <a class="el" href="../../df/d24/commonobject_8class_8php_source.html#l09418">CommonObject\updateCommon()</a>.</p>
 
@@ -1528,7 +1544,7 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int &lt;=0 if OK, 0=Nothing done, &gt;0 if KO </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00550">550</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html#l00514">514</a> of file <a class="el" href="../../d9/def/stocktransferline_8class_8php_source.html">stocktransferline.class.php</a>.</p>
 
 </div>
 </div>
@@ -1540,7 +1556,7 @@ Additional Inherited Members</h2></td></tr>
 File added into doxygen generated documentation
 -->
 <hr class="footer" />
-<address class="footer"><small>Generated on Mon Jan 2 2023 15:11:29 for <a href="https://www.dolibarr.org" title="ERP and CRM open source software">dolibarr</a> by Doxygen 1.9.1 </small></address>
+<address class="footer"><small>Generated on Tue Jan 3 2023 15:12:19 for <a href="https://www.dolibarr.org" title="ERP and CRM open source software">dolibarr</a> by Doxygen 1.9.1 </small></address>
 <br>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9049390-16"></script>

@@ -10,16 +10,15 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-  $(document).ready(function() {
-    if ($('.searchresults').length > 0) { searchBox.DOMSearchField().focus(); }
-  });
-  /* @license-end */
+  $(document).ready(function() { init_search(); });
+/* @license-end */
 </script>
-<link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="dolibarr"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -50,17 +49,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
-      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
-          <div class="left">
-            <form id="FSearchBox" action="search.php" method="get">
-              <img id="MSearchSelect" src="search/mag.svg" alt=""/>
-              <input type="text" id="MSearchField" name="query" value="Search" size="20" accesskey="S" 
-                     onfocus="searchBox.OnSearchFieldFocus(true)" 
-                     onblur="searchBox.OnSearchFieldFocus(false)"/>
-            </form>
-          </div><div class="right"></div>
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.svg"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
         </div>
       </li>
     </ul>
@@ -108,6 +110,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
     </ul>
   </div>
 </div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
 <div class="contents">
 &#160;
 
@@ -345,7 +361,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 , <a class="el" href="d3/d13/class_facture_ligne.html#ab806843d4371269c6cd2382b08ef008f">FactureLigne</a>
 , <a class="el" href="dc/d37/class_facture_ligne_rec.html#a9c41b6751726b0f61f9e78b21c6e2446">FactureLigneRec</a>
 , <a class="el" href="d4/d01/class_facture_rec.html#a8ac2e3e912f3ea6473294f392d3a3c1a">FactureRec</a>
-, <a class="el" href="dd/d32/class_fichinter.html#add9fed134dac08a75e0e65e9fb47e383">Fichinter</a>
+, <a class="el" href="dd/d32/class_fichinter.html#aad69cf56ceb77857a32d9231da3cf3d3">Fichinter</a>
 , <a class="el" href="db/da4/class_fichinter_rec.html#a0e084fa52f7e5a8896f1f3971918e343">FichinterRec</a>
 , <a class="el" href="d3/dde/class_file_upload.html#a1d9649f33a5d40a0794957d3aba08ec7">FileUpload</a>
 , <a class="el" href="d4/d57/class_fiscalyear.html#a91a27cc85ffaf5012d393963503ffd48">Fiscalyear</a>
@@ -869,7 +885,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search','.html');
 File added into doxygen generated documentation
 -->
 <hr class="footer" />
-<address class="footer"><small>Generated on Mon Jan 2 2023 15:11:30 for <a href="https://www.dolibarr.org" title="ERP and CRM open source software">dolibarr</a> by Doxygen 1.9.1 </small></address>
+<address class="footer"><small>Generated on Tue Jan 3 2023 15:12:20 for <a href="https://www.dolibarr.org" title="ERP and CRM open source software">dolibarr</a> by Doxygen 1.9.1 </small></address>
 <br>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9049390-16"></script>
